@@ -178,10 +178,7 @@ class Dispatcher<TPayload> {
    * Dispatches a payload to all registered callbacks.
    */
   dispatch(payload: TPayload): void {
-    invariant(
-      !this._isDispatching,
-      'Dispatch.dispatch(...): Cannot dispatch in the middle of a dispatch.'
-    );
+    // allow Dispatch.dispatch
     this._startDispatching(payload);
     try {
       for (var id in this._callbacks) {
